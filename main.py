@@ -4,7 +4,7 @@ import jwt
 from sqlalchemy import text
 import datetime
 from config import Config, db 
-from gets.endpoints_get import select_alunos, select_aluno, select_sala, select_dados_da_sala, select_professor, select_avaliacao
+from gets.endpoints_get import select_alunos, select_aluno, select_sala, select_dados_da_sala, select_professor, select_avaliacao, select_notificacoes, select_notificacao
 from posts.endpoints_jwt import  autenticar_usuario, token_required
 
 app = Flask(__name__)
@@ -48,6 +48,15 @@ def login():
 def verificar_token(data):
     return jsonify({'message': 'Token é válido!', 'data': data})
 
+@app.route('/notificacao', methods=['GET'])
+def get_notificacoes():
+    return select_notificacoes()
+
+@app.route('/notificacao/<int:matricula>', methods=['GET'])
+def get_notificacao(matricula):
+    return select_notificacao(matricula)
+    
+
 
 if __name__ == '__main__':
-    app.run(port='5000',host='0.0.0.0',debug=True)
+    app.run(debug=True)
