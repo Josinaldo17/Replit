@@ -2,9 +2,9 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 usuario = 'postgres'
-senha = 'cj17'
+senha = 'C2Fjz9tGnr3yTTHv'
 porta = '5432'
-host = 'localhost'
+host = 'sensually-happening-nyala.data-1.use1.tembo.io'
 banco_de_dados = 'postgres'
 
 
